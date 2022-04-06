@@ -1,0 +1,22 @@
+{
+    "name": "Unsaver Job",
+    "description": "Unsave Linkedin Job",
+    "version": "1.0",
+    "manifest_version": 3,
+    "background": {
+      "service_worker": "background.js"
+    },
+    "permissions": ["storage", "activeTab", "scripting","tabs", 
+        "http://*/",
+        "https://*/"],
+    "content_scripts"          : [ {
+        "matches"               : [ "http://*/*", "https://*/*" ],
+        "match_origin_as_fallback": true,
+        "all_frames"            : true,
+        "run_at"                : "document_idle",
+        "js"                    : [ "popup.js" ]
+  } ],
+    "action": {
+      "default_popup": "popup.html"
+    }
+  }
