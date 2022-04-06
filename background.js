@@ -7,10 +7,15 @@ chrome.tabs.onUpdated.addListener(async function (TabID, status, TabInfo) {
     try {
         if (statusPop == true && TabInfo.url.includes("linkedin.com/my-items/saved-jobs")) {
             if (status.status == "complete") {
-                chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {
-                    chrome.tabs.sendMessage(tabs[0].id, {
-                        type: "unsave",
-                    });
+                chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+                    try {
+                        chrome.tabs.sendMessage(tabs[0].id, {
+                            type: "unsave",
+                        });
+                    } catch (error) {
+
+                    }
+
                 });
             }
         }

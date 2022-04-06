@@ -6,9 +6,8 @@
     "background": {
       "service_worker": "background.js"
     },
-    "permissions": ["storage", "activeTab", "scripting","tabs", 
-        "http://*/",
-        "https://*/"],
+    "icons": { "128": "icon.png" },
+    "permissions": ["storage", "activeTab", "scripting","tabs"],
     "content_scripts"          : [ {
         "matches"               : [ "http://*/*", "https://*/*" ],
         "match_origin_as_fallback": true,
