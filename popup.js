@@ -1,7 +1,7 @@
 
 function checkExist() {
-    var allDots = document.querySelectorAll('[type="ellipsis-horizontal-icon"]');
-    if (allDots.length > 1) {
+    var allDots = document.querySelectorAll('[class="entity-result__item"]');
+    if (allDots.length > 0) {
         return true;
     }
     return false;
@@ -10,10 +10,11 @@ function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 async function unlcickAllUnsave() {
-    var allDots = document.querySelectorAll('[type="ellipsis-horizontal-icon"]');
-    for (let i = 0; i < allDots.length - 1; i++) {
+    
+    var allDots = document.querySelectorAll('[class="entity-result__item"]');
+    for (let i = 0; i < allDots.length ; i++) {
         if (checkExist() == true) {
-            allDots[i].click();
+            allDots[i].children[2].children[0].children[0].children[0].click()
             console.log("starting -> ", i)
         }
     }
