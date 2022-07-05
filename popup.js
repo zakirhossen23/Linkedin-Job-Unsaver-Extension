@@ -10,11 +10,11 @@ function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 async function unlcickAllUnsave() {
-    
-    var allDots = document.querySelectorAll('[class="entity-result__item"]');
+    await sleep(1500);
+    var allDots =  document.querySelectorAll('[aria-label="More actions"]');
     for (let i = 0; i < allDots.length ; i++) {
         if (checkExist() == true) {
-            allDots[i].children[2].children[0].children[0].children[0].click()
+            allDots[i].click()
             console.log("starting -> ", i)
         }
     }
